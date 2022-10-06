@@ -1,4 +1,4 @@
-# prob_03.Guessanumber.py
+# 
 """ 
 *user instruction
 *delay
@@ -21,11 +21,11 @@ from time import sleep
 x = input("Guess a number: ")
 
 x = input("Multiply 2 with your number: ")
- 
+
 x = input("Add 8 with the result")
-             
+
 x = input("divide the whole result with 2")
-             
+
 x = input("subtract the guessed number with the result")
 
 x = input('ur guessed nmbr is 4')
