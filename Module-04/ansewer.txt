@@ -1,0 +1,134 @@
+1. What is the output of the following display_person() function call
+def display_person(*args):
+    for i in args:
+        print(i)
+
+display_person(name="Rahat", age="25")
+
+TypeError
+Rahat
+25
+name
+age
+None of the Above
+Reason : অনেক গুলা keyword argument কে function এ পাস করতে গেলে আমরা **kwargs use করি । তাই ans typeError
+2. Select which is true for Python function
+A Python function can return only a single value
+A function can take an unlimited number of arguments.
+A Python function can return multiple values
+Python function doesn’t return anything unless and until you add a return statement
+Options :
+I
+I,II
+II,III
+I,IV
+
+Reason : পাইথন এর function দিয়ে আমরা একসাথে অনেকগুলা argument নিয়ে কাজ করতে পারি এবং অনেকগুলা value return করতে পারি. 
+আর পাইথন ফাংশনে সবসময় একটা রিটার্ন ভ্যালু থাকেই।
+
+3. 
+def f1():
+    global x
+    x+=1
+    print(x)
+x=12
+print("x")
+
+a) Error
+b) 13
+c)13 x
+d) x
+
+Reason : In the code shown above, the variable ‘x’ is declared as global within the function. Hence the output is ‘x’. Had the variable ‘x’ been a local variable, the output would have been:
+13
+x
+
+4. A Python module is a file with the _____ file extension that contains valid Python code.
+.pymodule
+.py
+.module
+.pym
+
+Reason : পাইথনে .py extension যুক্ত যেকোনো ফাইল ই একেক্টা Module
+
+5. What is the output of the following display() function call
+def display(**kwargs):
+    for i in kwargs:
+        print(i, end=” ”)
+
+display(emp="Kelly", salary=9000)
+TypeError
+Kelly 9000
+(’emp’, ‘Kelly’) (‘salary’, 9000)
+emp salary
+
+Reason :  keyword argument গুলাকে আমরা **kwargs দিয়ে অ্যাক্সেস করতে পারি।
+
+6. What will be the output of the following Python code?
+def foo():
+    try:
+        return 1
+    finally:
+        return 2
+k = foo()
+print(k)
+a) 1
+b) 2
+c) 3
+d) error, there is more than one return statement in a single try-finally block
+
+Reason : The finally block is executed even there is a return statement in the try block.
+
+7. When will the else part of try-except-else be executed?
+a) always
+b) when an exception occurs
+c) when no exception occurs
+d) when an exception occurs in to except block
+
+Reason : The else part is executed when no exception occurs.
+
+8. What are modules in Python?
+ Modules are like pre-written code snippets.
+ Modules are code files with python statements.
+ Modules are the standard code bases.
+ All are correct.
+
+9. What will be the output of the following Python code?
+try:
+    if '1' != 1:
+        raise "someError"
+    else:
+        print("someError has not occurred")
+except "someError":
+    print ("someError has occurred")
+
+a) someError has occurred
+b) someError has not occurred
+c) invalid code
+d) none of the mentioned
+
+Reason : A new exception class must inherit from a BaseException. There is no such inheritance here
+
+10 . What will be the output of the following Python code?
+from math import factorial
+print(math.factorial(5))
+
+a) 120
+b) Nothing is printed
+c) Error, method factorial doesn’t exist in math module
+d) Error, the statement should be: print(factorial(5))
+Reason : In the “from-import” form of import, the imported identifiers (in this case factorial()) aren’t specified along with the module name. 
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
