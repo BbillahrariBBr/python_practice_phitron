@@ -23,3 +23,8 @@ def mul(*numbers):
     return result
 
 print(mul(1,2,3,5))
+
+def add1(num1,*numbers):
+    print(numbers)
+
+add(3,4,5,6)
