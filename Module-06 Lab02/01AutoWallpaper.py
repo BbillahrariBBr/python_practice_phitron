@@ -4,6 +4,7 @@ Download and change desktop Wallpapers automitacally
  """
 import json
 import requests
+import PyWallpaper
 api_url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"
 # get the json
 response = requests.get(api_url)
@@ -24,4 +25,6 @@ res = requests.get(img_url)
 with open('apod.png','wb') as image:
     image.write(res.content)
 
+# set as a wallpaper
+PyWallpaper.change_wallpaper('E:\Phitron\2ndsem\python\python_practice_phitron\Module-06 Lab02\apod.png')
 # print(res)
