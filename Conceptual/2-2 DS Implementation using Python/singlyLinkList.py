@@ -48,6 +48,9 @@ class Linked_list:
                   return
             
             delNode = tmp.next
+            if tmp.next == None:
+                  print("Out of Bound")
+                  return
             tmp.next = tmp.next.next
             del delNode 
 
@@ -57,6 +60,15 @@ class Linked_list:
         while tmp!= None:
             print(tmp.val)
             tmp=tmp.next
+    def reverse_recursive(self):
+        if self.head.next == None:
+            return self.head
+        save = self.head
+        self.head = self.head.next
+        newHead = self.reverse_recursive()
+        save.next.next = save
+        save.next = None
+        return newHead
 
 def main():
     lst = Linked_list()
@@ -66,8 +78,9 @@ def main():
     # lst.print_list()
     lst.insert_at_pos(1,100)
     lst.delete_at_pos(0)
-    lst.insert_at_pos(2,200)
-    lst.delete_at_pos(1)
+    # lst.insert_at_pos(2,200)
+    # lst.delete_at_pos(4)
+    lst.head = lst.reverse_recursive()
     lst.print_list()
 
     # a = Node(10)
