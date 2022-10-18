@@ -9,8 +9,7 @@ def replace_word(lst, s):
             
             # print(next_word)
         else:
-            None
-        
+            None      
     return s
 
 
