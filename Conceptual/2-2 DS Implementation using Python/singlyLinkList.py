@@ -34,6 +34,23 @@ class Linked_list:
             while tmp.next != None:
                 tmp = tmp.next
             tmp.next=newNode
+    def delete_at_pos(self,pos):
+        if pos==0:
+            delNode = self.head
+            self.head = self.head.next
+            del delNode
+        else:
+            tmp = self.head
+            for i in range(pos-1):
+                tmp = tmp.next
+                if tmp == None:
+                  print("Out of Bound")
+                  return
+            
+            delNode = tmp.next
+            tmp.next = tmp.next.next
+            del delNode 
+
 
     def print_list(self):
         tmp = self.head
@@ -47,7 +64,10 @@ def main():
     lst.insert_at_tail(20)
     lst.insert_at_tail(30)
     # lst.print_list()
-    lst.insert_at_pos(4,100)
+    lst.insert_at_pos(1,100)
+    lst.delete_at_pos(0)
+    lst.insert_at_pos(2,200)
+    lst.delete_at_pos(1)
     lst.print_list()
 
     # a = Node(10)
