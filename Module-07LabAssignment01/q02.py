@@ -1,6 +1,5 @@
 from math import ceil
-from threading import Timer
-from time import sleep, time
+from time import sleep
 import requests
 user_api = '2ecf0c820fdad418008324d3e0a25b3c'
 def weather_data(city_name = 'Dhaka'):
@@ -12,13 +11,7 @@ def weather_data(city_name = 'Dhaka'):
          return print(f'{api_data["message"]}')
     else:
         return print(f'Temperature in {city_name} is {ceil(api_data["main"]["temp"])} Degree celsius')
-    
 
-# location = input("Enter The City Name: ")
-# weather_data("dhaka")
-# while(1):
-#     t = Timer(60, weather_data('Dhaka'))
-#     t.start()
-#     sleep(60)
-
-# wait for time completion
+while True:
+    weather_data("dhaka")
+    sleep(60*30)   
