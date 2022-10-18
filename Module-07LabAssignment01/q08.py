@@ -1,6 +1,3 @@
-
-
-
 def make_upper(text):
     s = ""
     for i in text:
@@ -39,12 +36,10 @@ def make_capital(text):
     return s
 
 
+def  test_script():
+    text = "i am learning PYTHON."
+    assert  make_capital(text) == text.capitalize()
+    assert  make_upper(text) == text.upper()
+    assert  make_lower(text) == text.lower()
 
-text = "i am learning PYTHON."
-# make_capital(text)
-c  = make_capital(text)
-u  = make_upper(text)
-l  = make_lower(text)
-print(c)
-print(u)
-print(l)
+
