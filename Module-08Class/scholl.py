@@ -1,5 +1,3 @@
-from tkinter.font import names
-
 
 class Student:
     def __init__(self,name,age,id):
@@ -47,3 +45,5 @@ students = [stu1,stu2, stu3]
 my_school = School(school_name, teachers,courses, students)
 print(my_school.students)
 my_school.get_students()
+
+print(type(stu1))
