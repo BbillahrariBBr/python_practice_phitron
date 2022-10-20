@@ -16,5 +16,5 @@ def timer(func):
 def get_factorial(n):
     result = math.factorial(n)
     print('factorial :',result)
-get_factorial(n=12)
+get_factorial(n=16)
 # timer(get_factorial)()
