@@ -25,10 +25,15 @@ class Window(QWidget):
         self.img_width = 640
         self.img_height = 400
 
+        # others var
+        self.dt = '0-0-0'
+        self.record_flag = False
+
+
         # load icon
         self.camera_icon = QIcon(cap_icon_path)
         self.video_icon = QIcon(rec_icon_path)
-
+        self.stop_icon = QIcon(stop_icon_path)
         # setup the window
         self.setWindowTitle("My Camera App")
         self.setGeometry(100,100,self.window_width,self.window_height)
@@ -60,7 +65,7 @@ class Window(QWidget):
 
          # Video button
         self.rec_btn = QPushButton(self)
-        self.rec_btn.setIcon(self.video_icon)
+        # self.rec_btn.setIcon(self.video_icon)
         self.rec_btn.setStyleSheet("border-radius: 30; border: 2px solid black; border-width: 3px")
         self.rec_btn.setFixedSize(60,60)
         self.rec_btn.clicked.connect(self.record)
@@ -79,6 +84,15 @@ class Window(QWidget):
         """ Update Frame """
         _,self.frame = self.cap.read()
 
+        if self.record_flag == True:
+            print("Recodrding....")
+            self.rec_btn.setIcon(self.stop_icon)
+            self.frame = cv2.circle(self.frame, (20,70), 5, (0,0,255),10)
+        else:
+            self.rec_btn.setIcon(self.video_icon)
+
+
+
         frame = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB) # open cv always B GB read kore amdr drkre RGB
         height,width,channel = frame.shape
         step = channel*width
@@ -94,7 +108,14 @@ class Window(QWidget):
 
     def record(self):
         """ record Video """
-        print("recording .....")
+        print(self.record_flag)
+
+        if self.record_flag == True:
+            self.record_flag = False
+            print("Stopping the record process")
+        else:
+            self.record_flag = True
+            print("Starting The record ")
 
 
     def get_time(self):
@@ -105,6 +126,7 @@ class Window(QWidget):
 #  run
 cap_icon_path = 'assets/capture.png'
 rec_icon_path = 'assets/video-camera.png'
+stop_icon_path = 'assets/stop.png'
 app  = QApplication(sys.argv)
 win = Window()
 sys.exit(app.exec_())
