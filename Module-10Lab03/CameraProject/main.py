@@ -3,15 +3,13 @@
 
     author: Bakibillah
  """
-
- 
 import sys
 from turtle import window_width
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap, QImage, QIcon
 from PyQt5.QtCore import QTimer
 import cv2
-
+import datetime
 
 # create a windows class
 class Window(QWidget):
@@ -29,6 +27,7 @@ class Window(QWidget):
 
         # load icon
         self.camera_icon = QIcon(cap_icon_path)
+        self.video_icon = QIcon(rec_icon_path)
 
         # setup the window
         self.setWindowTitle("My Camera App")
@@ -59,14 +58,21 @@ class Window(QWidget):
         self.capture_btn.setFixedSize(60,60)
         self.capture_btn.clicked.connect(self.save_img)
 
+         # Video button
+        self.rec_btn = QPushButton(self)
+        self.rec_btn.setIcon(self.video_icon)
+        self.rec_btn.setStyleSheet("border-radius: 30; border: 2px solid black; border-width: 3px")
+        self.rec_btn.setFixedSize(60,60)
+        self.rec_btn.clicked.connect(self.record)
+
         if not self.timer.isActive():
             self.cap = cv2.VideoCapture(0)
             self.timer.start(20)
 
         # add things to the layout
         grid.addWidget(self.capture_btn,0,0)
-        grid.addWidget(self.image_label,0,1)
-
+        grid.addWidget(self.image_label,0,1,2,3)
+        grid.addWidget(self.rec_btn,1,0)
         self.show()
 
     def update(self):
@@ -83,14 +89,22 @@ class Window(QWidget):
     def save_img(self):
         """ Save image from camera """
         print("Saving Image")
-        cv2.imwrite("my_img.jpg", self.frame)
+        self.get_time()
+        cv2.imwrite(f"{self.dt}.jpg", self.frame)
 
     def record(self):
         """ record Video """
-        pass
+        print("recording .....")
+
+
+    def get_time(self):
+        now = datetime.datetime.now()
+        self.dt = now.strftime("%m-%d-%y, %H-%M-%S")
+        print(self.dt)
 
 #  run
 cap_icon_path = 'assets/capture.png'
+rec_icon_path = 'assets/video-camera.png'
 app  = QApplication(sys.argv)
 win = Window()
 sys.exit(app.exec_())
