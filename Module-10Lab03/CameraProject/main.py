@@ -34,6 +34,9 @@ class Window(QWidget):
         self.camera_icon = QIcon(cap_icon_path)
         self.video_icon = QIcon(rec_icon_path)
         self.stop_icon = QIcon(stop_icon_path)
+
+        #  to save the video
+        self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
         # setup the window
         self.setWindowTitle("My Camera App")
         self.setGeometry(100,100,self.window_width,self.window_height)
@@ -92,7 +95,6 @@ class Window(QWidget):
             self.rec_btn.setIcon(self.video_icon)
 
 
-
         frame = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB) # open cv always B GB read kore amdr drkre RGB
         height,width,channel = frame.shape
         step = channel*width
@@ -116,6 +118,9 @@ class Window(QWidget):
         else:
             self.record_flag = True
             print("Starting The record ")
+            self.get_time()
+
+            self.out = cv2.VideoWriter(f"{self.dt}.avi",self.fourcc,20.0,(self.img_width, self.img_height))
 
 
     def get_time(self):
