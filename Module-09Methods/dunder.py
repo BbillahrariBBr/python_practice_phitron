@@ -16,6 +16,9 @@ class Person:
     
     def __len__(self):
         return self.height
+    
+    def __repr__(self):
+        return f'Nmae: {self.name} age: {self.age}'
     def __add__(self,other):
         return self.money+other.money
 
@@ -29,4 +32,4 @@ print(alim == dalim)
 
 friends = [45,65,98,12,32]
 print(len(alim))
-    
+print(dalim)

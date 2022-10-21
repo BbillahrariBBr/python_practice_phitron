@@ -5,9 +5,9 @@ class Shopping:
         self.customer = customer
         self.items = []
         self.total = 0
-    
-    # def opennig_hour(csl):
-    #     return cls.mall
+    @classmethod
+    def opennig_hour(csl,day):
+        return cls.mall
 
 
     @staticmethod
