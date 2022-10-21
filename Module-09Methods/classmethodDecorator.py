@@ -6,7 +6,7 @@ class Shopping:
         self.items = []
         self.total = 0
     @classmethod
-    def opennig_hour(csl,day):
+    def opennig_hour(cls,day):
         return cls.mall
 
 
