@@ -22,6 +22,7 @@ class CSE(Human):
 # police = Police(True, "Bangladeshi","male",84,64)
 # print(police.height)
 
-cse = CSE(True,False,"male",847,64)
-cse2 = CSE(love_to_Code=False,gender="female",has_gf=False,height=45, weight=65)
-print(cse.has_gf)
+if __name__ == '__main__':
+    cse = CSE(True,False,"male",847,64)
+    cse2 = CSE(love_to_Code=False,gender="female",has_gf=False,height=45, weight=65)
+    print(cse.has_gf)
