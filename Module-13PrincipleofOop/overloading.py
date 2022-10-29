@@ -17,7 +17,8 @@ class Account:
     
     def __add__(self,other):
         return self.__balance + other.__balance
-
+    def __eq__(self, __o: object) -> bool:
+        return self.__balance == __o.__balance
 my_acc = Account('Shakib',6000)
 her_acc = Account('shishir',90000)
 res = my_acc+her_acc
