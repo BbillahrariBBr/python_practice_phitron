@@ -8,4 +8,5 @@ class DerivedClass(BaseClass):
     pass
 
 # 1 single inheritance
-# 
+# Multi level inheritance
+#  multiple inheritance
