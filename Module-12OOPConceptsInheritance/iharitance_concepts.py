@@ -7,6 +7,7 @@ class BaseClass:
 class DerivedClass(BaseClass):
     pass
 
-# 1 single inheritance
-# Multi level inheritance
-#  multiple inheritance
+# 1 single inheritance(parent--> child)
+# Multi level inheritance (grandpa-->parent-->child )
+#  multiple inheritance(father,mother: child(father,mother))
+# Hierarchical inheritance( father-->you father-->brother father --> sister)
