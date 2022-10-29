@@ -11,3 +11,4 @@ class DerivedClass(BaseClass):
 # Multi level inheritance (grandpa-->parent-->child )
 #  multiple inheritance(father,mother: child(father,mother))
 # Hierarchical inheritance( father-->you father-->brother father --> sister)
+# hybrid inheritance
